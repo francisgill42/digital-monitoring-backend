@@ -1,0 +1,31 @@
+<?php
+
+namespace App;
+
+use Illuminate\Database\Eloquent\Model;
+
+class Project extends Model
+{
+    protected $fillable = ['name','client_id','status_id','comments'];
+
+    public function status()
+    {
+        return $this->belongsTo('App\Status');
+    }
+        public function client()
+    {
+        return $this->belongsTo('App\Client');
+    }
+
+    public function progress()
+    {
+        return $this->hasOne('App\Progress');
+    }
+
+
+        protected $casts = [
+        'created_at' => 'datetime:d-M-y',
+        ];
+
+
+}
