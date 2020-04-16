@@ -120,6 +120,7 @@ switch ($action) {
 
             $record->client = $record->client;
             $record->status = $record->status;  
+            $record->user = $record->user;  
           
             $ok  = $record->progress()->orderBy('id', 'DESC')->first();  
             if (!$ok) {

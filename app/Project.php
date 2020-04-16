@@ -17,6 +17,11 @@ class Project extends Model
         return $this->belongsTo('App\Client');
     }
 
+    public function user()
+    {
+        return $this->belongsTo('App\User');
+    }
+
     public function progress()
     {
         return $this->hasOne('App\Progress');

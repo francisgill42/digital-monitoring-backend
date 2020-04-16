@@ -14,6 +14,11 @@ class Progress extends Model
 
     }
 
+	public function user()
+	{
+	return $this->hasOneThrough('App\User', 'App\Project');
+	}
+
     protected $casts = [
     	'created_at' => 'datetime:d-M-y',
 	];
