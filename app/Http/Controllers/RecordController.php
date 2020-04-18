@@ -41,13 +41,7 @@ $model_class = new Record;
 $model_name = 'Record';
 
 if($request){
-    $validator = Validator::make($request->all(), [ 
-        'country' => 'required|min:3',
-    ]); 
 
-    if ($validator->fails()) { 
-        return $validator->errors();
-    }
     $arr = [ 
         'country' => $request->country,
         'cases' => $request->cases,
@@ -56,6 +50,7 @@ if($request){
      ];
     
 }
+
 
 switch ($action) {
 
