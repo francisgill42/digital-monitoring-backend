@@ -49,7 +49,8 @@ if($request){
         'name' => $request->name,
         'client_id' => $request->client_id,
         'status_id' => $request->status_id,
-        'comments' => $request->comments
+        'comments' => $request->comments,
+        'user_id' => $request->user_id
      ];
 	
 }
@@ -89,6 +90,7 @@ switch ($action) {
 		list($status,$msg)  = ($record) ? [true,$model_name.' has been created'] : [false,$model_name.' cannot create'];
         $record->client = $record->client;
         $record->status = $record->status;  
+        $record->user = $record->user;  
           $ok  = $record->progress()->orderBy('id', 'DESC')->first();  
             if (!$ok) {
                 $record->progress = ['progress' => 0];
@@ -115,11 +117,15 @@ switch ($action) {
     default: 	
 
        $records = $model_class::all();  
-
+       // $users = [];
         foreach($records as $record){
 
             $record->client = $record->client;
             $record->status = $record->status;  
+            // foreach($record->user_id as $user_id){
+            //     $users[] = \App\User::find($user_id);
+            // }
+            // $record->user = $users;
             $record->user = $record->user;  
           
             $ok  = $record->progress()->orderBy('id', 'DESC')->first();  

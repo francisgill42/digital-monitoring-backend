@@ -22,6 +22,26 @@ Route::resource('progress', 'ProgressController');
 
 Route::resource('records', 'RecordController');
 
+Route::post('count_view', function(){
+	$count = \App\View::where('id',1)->first();
+
+	 if($count){
+		\App\View::where('id',1)->update(
+			['count' => ++$count->count]
+		);
+	}
+	else{ \App\View::create(['count' => 1]);}
+
+	echo $count;
+	 
+});
+
+Route::get('total_views', function(){
+	$count = \App\View::where('id',1)->first();
+	echo $count;
+	 
+});
+
 Route::get('fetch',function(){
 $file = fopen(public_path().'/Book2.csv', 'r');
 while (($line = fgetcsv($file)) !== FALSE) {

@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Project extends Model
 {
-    protected $fillable = ['name','client_id','status_id','comments'];
+    protected $fillable = ['name','client_id','status_id','comments','user_id'];
 
     public function status()
     {
@@ -30,6 +30,7 @@ class Project extends Model
 
         protected $casts = [
         'created_at' => 'datetime:d-M-y',
+        // 'user_id' => 'array'
         ];
 
 
