@@ -25,9 +25,11 @@ Route::resource('records', 'RecordController');
 Route::post('count_view', function(){
 	$count = \App\View::where('id',1)->first();
 
+	$count->count = $count->count + 1;
+
 	 if($count){
 		\App\View::where('id',1)->update(
-			['count' => ++$count->count]
+			['count' => $count->count]
 		);
 	}
 	else{ \App\View::create(['count' => 1]);}

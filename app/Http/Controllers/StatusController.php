@@ -37,7 +37,7 @@ $model_name = 'status';
 
 if($request){
 	$validator = Validator::make($request->all(), [ 
-		'name' => 'required|min:3|max:15', 
+		'name' => 'required|min:3', 
 	
 	]); 
 

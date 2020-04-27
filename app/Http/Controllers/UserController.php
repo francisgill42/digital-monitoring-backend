@@ -43,7 +43,7 @@ $model_name = 'user';
 if($request){
 	$validator = Validator::make($request->all(), [ 
 		'name' => 'required|min:3|max:15', 
-		'email' =>'required|email|unique:users', 
+		'email' => $id ? 'required|email' : 'required|email|unique:users', 
 		'password' => $id ? 'min:8|max:20' : 'required|min:8|max:20', 
 		'role_id' => 'required'
 	]); 
