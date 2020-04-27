@@ -14,8 +14,8 @@ class AddDateStartend extends Migration
     public function up()
     {
         Schema::table('projects', function (Blueprint $table) {
-            $table->timestamp('start_date', 0);
-            $table->timestamp('end_date', 0);
+            $table->timestamp('start_date', 0)->nullable();
+            $table->timestamp('end_date', 0)->nullable();
         });
     }
 
@@ -27,8 +27,8 @@ class AddDateStartend extends Migration
     public function down()
     {
         Schema::table('projects', function (Blueprint $table) {
-            $table->timestamp('start_date', 0);
-            $table->timestamp('end_date', 0);
+            $table->timestamp('start_date', 0)->nullable();
+            $table->timestamp('end_date', 0)->nullable();
         });
     }
 }
