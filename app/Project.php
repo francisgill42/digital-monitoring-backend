@@ -24,8 +24,9 @@ class Project extends Model
 
     public function progress()
     {
-        return $this->hasOne('App\Progress');
+        return $this->hasOne('App\Progress')->orderBy('id', 'DESC')->first();
     }
+
 
 
         protected $casts = [

@@ -124,22 +124,18 @@ foreach($records as $record){
 
 $record->client = $record->client;
 $record->status = $record->status;  
+$record->user = $record->user;
+
+!$record->progress() ? $record->progress = ['progress' => 0] : $record->progress = $record->progress() ;
+
+}
+return $records;
+
 // foreach($record->user_id as $user_id){
 //     $users[] = \App\User::find($user_id);
 // }
 // $record->user = $users;
-$record->user = $record->user;  
 
-$ok  = $record->progress()->orderBy('id', 'DESC')->first();  
-if (!$ok) {
-$record->progress = ['progress' => 0];
-} 
-else{
-$record->progress;
-}
-
-}
-    return $records;
 
 }
 }
